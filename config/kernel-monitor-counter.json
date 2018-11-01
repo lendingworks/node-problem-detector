@@ -19,7 +19,7 @@
       "type": "permanent",
       "condition": "FrequentUnregisterNetDevice",
       "reason": "UnregisterNetDevice",
-      "path": "/home/kubernetes/bin/log-counter",
+      "path": "/log-counter",
       "args": [
         "--lookback=20m",
         "--count=3",

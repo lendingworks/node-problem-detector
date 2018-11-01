@@ -123,3 +123,8 @@ clean:
 	rm -f bin/log-counter
 	rm -f bin/node-problem-detector
 	rm -f node-problem-detector-*.tar.gz
+
+# Not overriding any of the build tasks above so that upstream will merge cleaner.
+lw: build-in-docker Dockerfile
+	docker build -t lendingworks/k8s-node-problem-detector:$(TAG) .
+	docker push lendingworks/k8s-node-problem-detector:$(TAG)
