@@ -50,10 +50,10 @@ IMAGE:=$(REGISTRY)/node-problem-detector:$(TAG)
 ENABLE_JOURNALD?=1
 
 # TODO(random-liu): Support different architectures.
-# The debian-base:0.3 image built from kubernetes repository is based on Debian Stretch.
+# The debian-base:0.4.0 image built from kubernetes repository is based on Debian Stretch.
 # It includes systemd 232 with support for both +XZ and +LZ4 compression.
 # +LZ4 is needed on some os distros such as COS.
-BASEIMAGE:=k8s.gcr.io/debian-base-amd64:0.3
+BASEIMAGE:=k8s.gcr.io/debian-base-amd64:0.4.0
 
 # Disable cgo by default to make the binary statically linked.
 CGO_ENABLED:=0
@@ -69,7 +69,7 @@ ifeq ($(ENABLE_JOURNALD), 1)
 endif
 
 vet:
-	go list ./... | grep -v "./vendor/*" | xargs go vet
+	go list ./... | grep -v "./vendor/*" | xargs go vet $(BUILD_TAGS)
 
 fmt:
 	find . -type f -name "*.go" | grep -v "./vendor/*" | xargs gofmt -s -w -l
