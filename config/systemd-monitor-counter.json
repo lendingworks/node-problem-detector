@@ -29,7 +29,7 @@
       "type": "permanent",
       "condition": "FrequentKubeletRestart",
       "reason": "FrequentKubeletRestart",
-      "path": "/home/kubernetes/bin/log-counter",
+      "path": "/log-counter",
       "args": [
         "--journald-source=systemd",
         "--log-path=/var/log/journal",
@@ -44,7 +44,7 @@
       "type": "permanent",
       "condition": "FrequentDockerRestart",
       "reason": "FrequentDockerRestart",
-      "path": "/home/kubernetes/bin/log-counter",
+      "path": "/log-counter",
       "args": [
         "--journald-source=systemd",
         "--log-path=/var/log/journal",
@@ -58,7 +58,7 @@
       "type": "permanent",
       "condition": "FrequentContainerdRestart",
       "reason": "FrequentContainerdRestart",
-      "path": "/home/kubernetes/bin/log-counter",
+      "path": "/log-counter",
       "args": [
         "--journald-source=systemd",
         "--log-path=/var/log/journal",
